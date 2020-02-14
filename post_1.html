@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Senior Design Blog</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Setting Up an EC2 Instance</h1>
+            <span class="meta">Posted by Andrew Huebert on Feb 14, 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Setting up an EC2 Instance was actually much easier than I anticipated. To begin with you need to creat an AWS account
+			that will house all of your AWS services. These services include, but are not limited to, EC2, S3 and Lightsail.
+		  </p>
+		  
+		  <p>Once an AWS account is created you are granted what's called the "Free Tier" of services. Within this "Free Tier" the EC2
+		  service is available. You simply click on EC2, and it will take you to a new Dashboard for all of your EC2 needs.
+		  </p>
+		            
+            <img class="img-fluid" src="img/AWS_EC2.jpg" alt="">
+          
+		  <p>Once in this Dashboard there is an option that says "Create Instance." You press that button and it will redirect you to 
+		  a Wizard, similar to a Windows set-up wizard, that will direct you on the options for creating your EC2 instance.
+		  </p>
+		  
+		  <p>The main thing to focus on is the "AMI" that is chosen. This AMI is the operating system that gets booted onto the EC2 server.
+		  Amazon offers their propietary AMI, which is a perfectly fine OS to test this EC2 instance with.
+		  </p>
+		  
+		  <p>Once you finish the Set-Up Wizard, choosing storage requirements and setting tags, you have completed the first set up of an EC2 instance.
+		  This instsance, depending on which protocols and services you included, is now SSH ready, able to host a Web service or even able to be setup as
+		  a database.
+		  </p>
+		  
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://github.com/andrewHuebert">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; CIT 481 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
