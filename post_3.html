@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Senior Design Blog</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Setting up a Failover IP Cluster with HP iLo</h1>
+            <span class="meta">Posted by Andrew Huebert on Feb 28, 2020</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+         
+			<p>Setting up a Failover IP Cluster, or High-Availability Cluster, means that two servers will share a public IP address while maintaining their own resources.
+			This means that if one server fails or loses connection the other server will take over the IP address and function the same as the previous server. This is helpful
+			in maintaing availabilty of resources and web sites.
+			</p>
+			
+			<p>To do this you must first synchronize the times of both servers so they are running concurrently. After that you set up a cluster with the nodes under the same 
+			'binding IP address' with Corosync and Pacemaker in the Ubuntu services. These are cluster management tools that establish a connection between the two servers and 
+			monitor both of them for 'life.'
+			</p>
+		            
+            <img class="img-fluid" src="img/HA_Cluster.png" alt="">
+          
+			<p>After setting up the cluster under the same IP address you must establish STONITH, or Shoot The Other Node In The Head. This means that if the primary node fails 
+			and the secondary node has to take over it will ensure the previous server is 'dead' by physically shutting it down. This allows the new 'primary' server to take over 
+			without getting interfered with by the other server.
+			</p>
+			
+			<p>Once the cluster and STONITH are established and setup you are free to test the HA (High Availability) system. To do this you would shut down the primary node 
+			with a 'crm node standby primary' command. This puts 'Server A' on standby allowing 'Server B' to kill it and take over. Once that is completed you run a 
+			'crm node online secondary' command and it will come back as the secondary server.
+			</p>
+		  
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://github.com/andrewHuebert">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; CIT 481 2020</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
